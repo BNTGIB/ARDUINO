@@ -18,7 +18,7 @@ This DIY Useless Box project utilizes a Push-Pull Linkage mechanism, allowing th
 - Case Material: 3mm Formex board (PVC foam board).
 
 ## 📐 Mechanical Blueprint
-![Case Blueprint](Case_size.png)
+![Case Blueprint](Formex_layout.png)
 
 ## 🚀 Installation & Setup
 1. Clone this repository to your local machine.

@@ -18,7 +18,7 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 - Vật liệu vỏ: Formex 3mm.
 
 ## 📐 Bản vẽ Thiết kế Cơ khí
-![Case Blueprint](Case_size.png)
+![Case Blueprint](Formex_layout.png)
 
 ## 🚀 Hướng dẫn Cài đặt (Installation)
 1. Clone repository này về máy.
@@ -31,3 +31,6 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 - [ ] Lắp ráp cơ cấu thanh truyền cho nắp.
 - [ ] Cài đặt hệ thống LED RGB hiển thị cảm xúc.
 - [ ] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
+
+## Sửa lỗi
+- Miếng đế 3mm là quá mỏng -> dán đè thêm 1 tấm formex thành 6mm. Đồng thời thay đổi thiết kế hộp rộng hơn, cho các mặt bên phủ che đi vết cắt phần đế
