@@ -27,9 +27,11 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 4. Nạp code vào mạch.
 
 ##  Lộ trình (TODO)
-- [x] Thiết kế kích thước vỏ hộp Formex (120x90x50mm).
-- [ ] Lắp ráp cơ cấu thanh truyền cho nắp.
-- [ ] Cài đặt hệ thống LED RGB hiển thị cảm xúc.
+- [x] Thiết kế kích thước vỏ hộp Formex.
+- [x] Đo và cắt Formex, tạo vỏ hôp.
+- [x] Xử lý phần cứng: hàn và nối linh kiện.
+- [ ] Đưa linh kiện vào vỏ hộp và test các chức năng cơ bản.
+- [ ] Viết Sourcode cơ bản và test.
 - [ ] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
 
 ##  Hardware Setup & Troubleshooting
@@ -41,8 +43,8 @@ Trong quá trình thi công thực tế (cắt Formex, hàn mạch, đi dây), d
 * **Giải pháp:** Dán đè thêm 1 tấm Formex lên các vị trí yếu, nâng độ dày thành 6mm. Đồng thời thay đổi thiết kế hộp rộng hơn, cho các mặt bên phủ che đi vết cắt phần đế để tăng tính thẩm mỹ.
 
 ### 2. Cơ khí: Chống xoay công tắc MTS trên nền Formex
-* **Vấn đề:** Bề mặt Formex xốp mềm, nếu chỉ vặn đai ốc, lực gạt công tắc liên tục sẽ làm củ công tắc bị xoay tròn. Ngoài ra, phần đuôi ren công tắc giá rẻ có nốt dập nổi gây cấn.
-* **Giải pháp:** Áp dụng thứ tự lắp ráp ngược: `Vòng đệm răng cưa` (để triệt tiêu nốt dập nổi) -> `Vòng đệm có ngàm phẳng` (mấu nhọn chĩa lên trên). Khi siết đai ốc, ngàm nhọn đâm và lún sâu vào Formex, tạo thành ngàm chống xoay hoàn hảo.
+* **Vấn đề:** Bề mặt Formex xốp mềm, nếu chỉ vặn đai ốc, lực gạt công tắc liên tục sẽ làm củ công tắc bị xoay tròn. 
+* **Giải pháp:** Áp dụng thứ tự lắp ráp ngược: `Vòng đệm răng cưa`  -> `Vòng đệm có ngàm phẳng` (mấu nhọn chĩa lên trên). Khi siết đai ốc, ngàm nhọn đâm và lún sâu vào Formex, tạo thành ngàm chống xoay hoàn hảo.
 
 ### 3 Cứu hộ Phần cứng (Hardware Bypass): Hỏng pad mạch sạc TP4056
 * **Vấn đề:** Do thao tác hàn còn sơ sài, pad đồng `OUT -` trên mạch TP4056 bị tróc hoàn toàn.
@@ -57,5 +59,5 @@ Trong quá trình thi công thực tế (cắt Formex, hàn mạch, đi dây), d
 * **Giải pháp:** Sử dụng điện trở nội kéo lên `INPUT_PULLUP` và đảo ngược logic trong code. Mạch hở = `HIGH` (Bật hộp), Mạch kín = `LOW` (Tắt hộp). Tránh việc phải rã hàn vật lý.
 ---
 
-## [Hardware Test Code](Hardware_Test)
+## [Hardware Test Code](Hardware_Test/Hardware_Test.ino)
 
