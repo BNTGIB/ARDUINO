@@ -30,25 +30,48 @@ void setup() {
     cover.attach(COVER);
 
     // Return finger and cover to the "Sleeping" state
-    finger.write(0);    
-    cover.write(0);
+    finger.write(180);    
+    cover.write(10);
+}
+void coverAngry(){
+    cover.write(150);
+    delay(200);
+    cover.write(10);
+    delay(200);
+    cover.write(150);
+    delay(200);
+    cover.write(10);
+    delay(200);
+    cover.write(150);
+    delay(200);
+    cover.write(10);
+    delay(200);
 }
 
 void loop() {
     int switch_state = digitalRead(sw_com);
 
-    if (switch_state == HIGH) {     // HIGH-> ON
-        setRGB(255, 0, 0);        // RED color
-        cover.write(90);
+    if (switch_state == LOW) {
+        setRGB(255, 0, 0);              // RED color
+        coverAngry();                  // HIGH-> ON
+        delay(500);
+        cover.write(150);
         delay(200);
-        finger.write(90);
+        finger.write(180-130);
+        delay(250);
+        finger.write(180-0);
+        delay(200);
+        cover.write(10);
+        setRGB(0, 255, 0);     // GREEN color
+        delay(1000);
+        
     } 
     // Mạch kín (LOW) -> Trạng thái NGỦ
     else {                        // LOW-> OFF
         setRGB(0, 255, 0);     // GREEN color
-        finger.write(0);
+        finger.write(180-0);
         delay(200);
-        cover.write(0);
+        cover.write(10);
     }
     delay(50);
 }
