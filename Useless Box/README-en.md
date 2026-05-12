@@ -30,7 +30,7 @@ The Useless Box DIY project features a push-pull linkage mechanism enabling an a
 - [x] Design Formex case dimensions.
 - [x] Measure, cut Formex, and assemble the case.
 - [x] Hardware processing: wiring and soldering components.
-- [ ] Mount hardware components into the case and test basic functions.
+- [x] Mount hardware components into the case and test basic functions.
 - [ ] Write and test the core source code for the project.
 - [ ] Finalize the array of function pointers for behavioral scripts.
 

@@ -30,7 +30,7 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 - [x] Thiết kế kích thước vỏ hộp Formex.
 - [x] Đo và cắt Formex, tạo vỏ hôp.
 - [x] Xử lý phần cứng: hàn và nối linh kiện.
-- [ ] Đưa linh kiện vào vỏ hộp và test các chức năng cơ bản.
+- [x] Đưa linh kiện vào vỏ hộp và test các chức năng cơ bản.
 - [ ] Viết Sourcode cơ bản và test.
 - [ ] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
 
