@@ -4,7 +4,7 @@ void setRGB(int red, int green, int blue){
   analogWrite(BLUE, blue);
 }
 
-void (int val, int speed=0){
+void finger(int val, int speed=0){
   if(!speed) {
     Finger.write(val);
     return;
@@ -13,10 +13,10 @@ void (int val, int speed=0){
   int current= Finger.read();
   if(val>current)
     for(int i = current; i <= val; i+= speed )
-      Finger.write(i);
+      Finger.write(min(i,Touch));
   else
     for(int i = current; i >= val; i-= speed )
-      Finger.write(i);
+      Finger.write(max(0,i));
 }
 
 void cover(int val, int speed=0){
@@ -28,10 +28,10 @@ void cover(int val, int speed=0){
   int current= Cover.read();
   if(val>current)
     for(int i = current; i <= val; i+= speed )
-      Cover.write(i);
+      Cover.write(min(i,Touch));
   else
     for(int i = current; i >= val; i-= speed )
-      Cover.write(i);
+      Cover.write(max(0,i));
 }
 
 void sleep(){
