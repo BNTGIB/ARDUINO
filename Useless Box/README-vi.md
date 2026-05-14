@@ -75,3 +75,25 @@ Dự án được tổ chức theo kiến trúc module hóa bằng cách chia nh
 - Tối ưu hóa học tập: Giúp làm quen với việc quản lý Variable Scope (biến toàn cục/cục bộ) và cách các file liên kết với nhau trong môi trường C/C++.
 
 - Clean Code: Giữ cho file chính luôn ngắn gọn, súc tích và dễ đọc.
+
+## Core Logic & Features
+Mình sẽ gọi chương trình của sản phẩm là "Box".
+
+### 1. Bộ máy cảm xúc (Cơ chế Stress)
+Khác với các Useless Box khác thể hiện cảm xúc ngẫu một cách đơn giản, sản phẩm của dự án này có thể theo dõi hành vi của người dùng, .
+
+- Box sử dụng biến `stressLevel` (0 đến 10), biến này sẽ tăng lên nếu công tắc bị gạt lại trong vòng 5 giây sau lần gạt trước.
+- Nếu được để yên, Box sẽ bình tĩnh lại và giảm dần `stressLevel` theo thời gian.
+
+### 2. Dynamic Action Selection
+Mảng con trỏ chứa nhiều hàm, mỗi hàm đều là một hành động gạt công tắc nhưng với đặc tính, mức độ phản ứng khác nhau(Normal, Angry, ...). Hàm `loop()` sẽ chọn chỉ số mảng, hay phản ứng dựa trên `stressLevel`.
+- Low stress: phản ứng cơ bản, chậm rãi.
+- High stress: Phản ứng mạnh hơn, nhanh hơn, nhiều bước, điên hơn.
+
+- **"Lạc mềm buộc chặt"**: Có 10% tỷ lệ để BOX thực hiện một hành động "nhẹ nhàng" khi đang ở High Stress, tiếng việt gọi là "Lạc mềm buộc chặt", bắt chước cảm xúc thất thường của con người.
+- **"Ánh mắt hình viên đạn"**: nếu BOX đang ở mức độ stress trung bình (`stressLevel >= 5`), thì sau khi thực hiện thao tác gạt cần và đóng nắp, sẽ có 33% tỷ lệ nó sẽ mở nắp để **"lườm"**, **"khè"** người dùng, mang tính cảnh cáo với (`Watch_Out_For_Me()`).
+
+### 3. Smooth Hardware Abstraction
+Để khiến chuyển động của servo trở nên tự nhiên hơn, thêm vào 2 hàm `finger(val, speed)` and `cover(val, speed)`. 
+- Thay vì chỉ chuyển động thẳng đến góc cần, 2 hàm này có thể tính toán góc hiên tại bằng `.read()` và dùng vòng lặp `for` để xoay đều dần đến vị trí, với tốc độ có thể điều chỉnh bằng tham số `speed`. Từ đó cho phép kiểm soát vị trí xoay mong muốn với tốc độ tuỳ ý.
+

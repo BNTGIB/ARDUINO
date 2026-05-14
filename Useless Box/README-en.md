@@ -77,3 +77,22 @@ The project follows a modular architecture by splitting the source code into `3 
 - Educational Value: This structure provides hands-on experience with Variable Scope management (Global vs. Local) and file linking within the C/C++ environment.
 
 - Clean Code: Keeps the primary file concise, readable, and focused on high-level decision-making.
+
+## Core Logic & Features
+The central program of the device is referred to as the "Box".
+
+### 1. The Emotion Engine (Stress Mechanism)
+Unlike standard Useless Boxes that play random sequences, this box tracks user behavior. 
+- The Box utilizes a `stressLevel` variable (ranging from 0 to 10), which increases if the switch is toggled again within 5 seconds of the previous interaction.
+- If left undisturbed, the Box will "calm down," gradually decreasing its stressLevel
+
+### 2. Dynamic Action Selection
+An array contains multiple function pointers, each representing a specific toggle action with unique characteristics and reaction intensities (e.g., Normal, Angry). The `loop()` function selects the array index—and thus the reaction—based on the current `stressLevel`.
+- Low stress: Triggers basic, slow animations.
+- High Stress: Triggers reactions that are stronger, faster, multi-step, and more erratic.
+- **"The Velvet Glove":** There is a 10% chance for the BOX to perform a "gentle" action even when at High Stress. This mimics the unpredictable nature of human emotions.
+- **"The Death Stare":** If the Box is at a medium stress level `(stressLevel >= 5)`, there is a `33%` chance it will pop the lid open after toggling the switch to **"glare"** at or **"threaten"** the user. This acts as a warning through the `Watch_Out_For_Me()` function.
+### 3. Smooth Hardware Abstraction
+To make the servo movements appear more natural, two wrapper functions were added: `finger(val, speed)` and `cover(val, speed)`.
+- Instead of simply snapping to the target angle, these functions calculate the current position using `.read()` and use a `for` loop to rotate steadily toward the destination.
+- The rotation speed is adjustable via the `speed` parameter, allowing for precise control over the movement's positioning and pace
