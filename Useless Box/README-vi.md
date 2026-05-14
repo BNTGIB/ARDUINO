@@ -31,11 +31,10 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 - [x] Đo và cắt Formex, tạo vỏ hôp.
 - [x] Xử lý phần cứng: hàn và nối linh kiện.
 - [x] Đưa linh kiện vào vỏ hộp và test các chức năng cơ bản.
-- [ ] Viết Sourcode cơ bản và test.
+- [x] Viết Sourcode cơ bản và test.
 - [ ] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
 
 ##  Hardware Setup & Troubleshooting
-
 Trong quá trình thi công thực tế (cắt Formex, hàn mạch, đi dây), dự án đã gặp một số vấn đề vật lý và được xử lý bằng các kỹ thuật "hotfix" sau:
 
 ### 1. Vật liệu và thẩm mỹ: Độ bền vật liệu không đảm bảo
@@ -61,3 +60,18 @@ Trong quá trình thi công thực tế (cắt Formex, hàn mạch, đi dây), d
 
 ## [Hardware Test Code](Hardware_Test/Hardware_Test.ino)
 
+## Project Structure & Modularization
+Dự án được tổ chức theo kiến trúc module hóa bằng cách chia nhỏ mã nguồn thành `3 tab`(files) chính trong Arduino IDE. Việc này giúp quản lý logic dễ dàng hơn, tách biệt giữa cấu hình phần cứng và kịch bản hành động.
+
+| Tab / File       |     Vai trò (Role)     | Chức năng chính                                                                                                                                    |
+| :--------------- | :--------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UselessBox.ino` | **Director(Đạo diễn)** | Main logic, Loop & Setup, Function Pointer Array                                                                                                   |
+| `Hardware.ino`   | **Backstage(Hậu cần)** | Chứa các hàm giao tiếp trực tiếp với linh kiện như điều khiển LED RGB, đọc trạng thái Switch (công tắc) và điều khiển Servo.                       |
+| `Animations.ino` |  **Actor(Diễn viên)**  | Tập hợp tất cả các kịch bản "cảm xúc" của hộp (Angry, Shy, Troll, Normal...). Mỗi hàm trong này đại diện cho một tính cách khác nhau của thiết bị. |
+
+### Tại sao lại chia như vậy?
+- Dễ bảo trì: Khi muốn thêm một hành động mới (ví dụ: actionCrazy), mình chỉ cần viết thêm hàm vào tab Animations mà không làm rối loạn code xử lý phần cứng hay logic chính.
+
+- Tối ưu hóa học tập: Giúp làm quen với việc quản lý Variable Scope (biến toàn cục/cục bộ) và cách các file liên kết với nhau trong môi trường C/C++.
+
+- Clean Code: Giữ cho file chính luôn ngắn gọn, súc tích và dễ đọc.

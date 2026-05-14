@@ -31,7 +31,7 @@ The Useless Box DIY project features a push-pull linkage mechanism enabling an a
 - [x] Measure, cut Formex, and assemble the case.
 - [x] Hardware processing: wiring and soldering components.
 - [x] Mount hardware components into the case and test basic functions.
-- [ ] Write and test the core source code for the project.
+- [x] Write and test the core source code for the project.
 - [ ] Finalize the array of function pointers for behavioral scripts.
 
 ## Hardware Setup & Troubleshooting
@@ -61,3 +61,19 @@ During the physical assembly process (Formex cutting, soldering, wiring), the pr
 ---
 
 ## [Hardware Test Code](Hardware_Test/Hardware_Test.ino)
+
+## Project Structure & Modularization
+The project follows a modular architecture by splitting the source code into `3 main tabs` (files) within the Arduino IDE. This approach simplifies logic management by decoupling hardware configurations from behavioral scripts.
+
+| Tab / File       | Role | Key Functions                                                                                                                        |
+| :--------------- | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- |
+| `UselessBox.ino` |  **Director**  | Manages the main flow (setup & loop), global variables, and coordinates behaviors using a Function Pointer Array.                      |
+| `Hardware.ino`   | **Backstage**  | Low-level hardware abstraction, including RGB LED control, Switch state reading, and Servo positioning.                                |
+| `Animations.ino` |   **Actor**    | A collection of "emotional" scripts (Angry, Shy, Troll, Normal...). Each function represents a unique personality trait of the device. |
+
+### Why Modularize?
+- Scalability: To add a new behavior (e.g., actionCrazy), I only need to define a new function in the Animations tab without cluttering the core logic or hardware drivers.
+
+- Educational Value: This structure provides hands-on experience with Variable Scope management (Global vs. Local) and file linking within the C/C++ environment.
+
+- Clean Code: Keeps the primary file concise, readable, and focused on high-level decision-making.
