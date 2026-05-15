@@ -32,7 +32,7 @@ The Useless Box DIY project features a push-pull linkage mechanism enabling an a
 - [x] Hardware processing: wiring and soldering components.
 - [x] Mount hardware components into the case and test basic functions.
 - [x] Write and test the core source code for the project.
-- [ ] Finalize the array of function pointers for behavioral scripts.
+- [x] Finalize the array of function pointers for behavioral scripts.
 
 ## Hardware Setup & Troubleshooting
 

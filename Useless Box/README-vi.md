@@ -32,7 +32,7 @@ Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (P
 - [x] Xử lý phần cứng: hàn và nối linh kiện.
 - [x] Đưa linh kiện vào vỏ hộp và test các chức năng cơ bản.
 - [x] Viết Sourcode cơ bản và test.
-- [ ] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
+- [x] Hoàn thiện mảng các hàm (Function Pointers) cho kịch bản.
 
 ##  Hardware Setup & Troubleshooting
 Trong quá trình thi công thực tế (cắt Formex, hàn mạch, đi dây), dự án đã gặp một số vấn đề vật lý và được xử lý bằng các kỹ thuật "hotfix" sau:
