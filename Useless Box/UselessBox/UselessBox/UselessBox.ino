@@ -9,10 +9,23 @@
 #define GREEN 5
 #define BLUE 6
 
-#define Touch 130
-#define FullOpen 150
+#define Touch 133
+#define FullOpen 160
 
 Servo Finger, Cover;
+
+void Watch_Out_For_Me();
+void Normal0();
+void Normal1();
+void Normal2();
+void Normal3();  
+
+void  Angry0();
+void  Angry1();
+void  Angry2();
+void  Angry3();
+
+
 
 typedef void (*ActionFunction)();
 ActionFunction action[]={
@@ -53,9 +66,10 @@ void setup(){
 
 int stressLevel = 0;         
 unsigned long lastClickTime = 0;
+unsigned long now = 0;
 
 void updateStress() {
-  unsigned long now = millis();
+    now = millis();
 
     if( now - lastClickTime < 5000 ){ // increase stress if it be annoyed again in 5s
         stressLevel += (now-lastClickTime < 3000) ? random(1, 3) : 1; 
@@ -66,9 +80,7 @@ void updateStress() {
         int coolDown = (now - lastClickTime) / 2000; 
         stressLevel = max(0, stressLevel - coolDown);
     }
-
     stressLevel = min(stressLevel, 10); //limit the maximum  stress;
-    lastClickTime = now;
 }
 
 
@@ -81,12 +93,14 @@ void loop() {
     }
     else{
         int minIdx = stressLevel / 2;
-        int maxIdx = (int)(Total_action * (1.0 - (0.4 - (stressLevel / 10.0) * 0.4)));
+        int maxIdx = (int)((Total_action) * (1.0 - (0.5 - (stressLevel / 10.0) * 0.5)));
         action[random(minIdx, maxIdx)]();
     }
     sleep();
 
     if(random(3)==0 and stressLevel >= 5) 
         Watch_Out_For_Me();
+
+    lastClickTime = millis();
   }
 }
