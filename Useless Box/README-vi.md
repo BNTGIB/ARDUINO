@@ -1,6 +1,6 @@
 # 📦 The Emotional Useless Box
 Một chiếc hộp vô dụng (Useless Box) nhưng có "tính cách" đa dạng, được điều khiển bằng mảng con trỏ hàm.
-<video controls src="Product%20Video.mp4" title="Title"></video>
+<video controls src="Product_Video.mp4" title="Title"></video>
 
 ##  Giới thiệu
 Dự án DIY Useless Box được thiết kế với cơ cấu thanh truyền (Push-Pull Linkage) cho phép nắp hộp đóng sập chủ động, kết hợp với các kịch bản phản hồi Ngaa để tạo ra nhiều trạng thái cảm xúc khác nhau.
