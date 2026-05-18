@@ -1,6 +1,6 @@
 # 📦 The Emotional Useless Box
 A Useless Box with diverse "personalities", driven by an array of function pointers.
-<video controls src="Product Video.mp4" title="Title"></video>
+<video controls src="Product%20Video.mp4" title="Title"></video>
 
 ## Introduction
 The Useless Box DIY project features a push-pull linkage mechanism enabling an active lid slam, combined with randomized behavioral scripts to express various emotional states (Normal, Angry, Shy, etc.).
